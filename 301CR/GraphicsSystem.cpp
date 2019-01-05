@@ -5,10 +5,10 @@ GraphicsSystem::GraphicsSystem()
 {
 }
 
-void GraphicsSystem::GetNewSprite(sf::Sprite& sprite, TextureSettings settings)
+void GraphicsSystem::GetNewSprite(sf::Sprite& sprite, Animation settings)
 {
 	sf::Texture texture;
-	texture.loadFromFile(settings.filePath);
+	//texture.loadFromFile(settings.filePath);
 
 	sf::IntRect rect = sf::IntRect(settings.rectPosition, settings.rectPixelSize);
 

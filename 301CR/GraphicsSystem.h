@@ -5,11 +5,11 @@
 #include <iostream>
 #include <string>
 #include "SFML/Graphics.hpp"
-#include "TextureSettings.h"
+#include "Animation.h"
 
 static class GraphicsSystem
 {
 public:
 	GraphicsSystem();
-	static void GetNewSprite(sf::Sprite& sprite, TextureSettings settings);
+	static void GetNewSprite(sf::Sprite& sprite, Animation settings);
 };

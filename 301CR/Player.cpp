@@ -1,14 +1,18 @@
 #include "pch.h"
 #include "Player.h"
-#include "GameSettings.h"
-#include "TextureSettings.h"
 
-Player::Player(b2World & world, const sf::Texture& _texture, b2Vec2 _size, b2Vec2 _position)
+Player::Player()
+{
+}
+
+Player::Player(b2World & world, std::vector<Animation>& _animations, b2Vec2 _position, b2Vec2 _size)
 {
 	type = ObjectType::OT_Player;
 
-	sprite.setTexture(_texture);
-	sf::IntRect rect = sf::IntRect(sf::Vector2i(0, 43), sf::Vector2i(128, 143));
+	animations = _animations;
+
+	sprite.setTexture(animations[0].texture);
+	sf::IntRect rect = sf::IntRect(animations[0].rectPosition, animations[0].rectPixelSize);
 	sprite.setTextureRect(rect);
 
 	sprite.setOrigin(sprite.getTextureRect().width / 2, sprite.getTextureRect().height / 2);
@@ -16,6 +20,8 @@ Player::Player(b2World & world, const sf::Texture& _texture, b2Vec2 _size, b2Vec
 	float scaleX = (_size.x / sprite.getTextureRect().width) * SETTINGS_SCALE;
 	float scaleY = (_size.y / sprite.getTextureRect().height) * SETTINGS_SCALE;
 	sprite.setScale(sf::Vector2f(scaleX, scaleY));
+
+	animator = Animator(sprite, animations);
 
 	size = _size;
 	position = _position;
@@ -25,6 +31,9 @@ Player::Player(b2World & world, const sf::Texture& _texture, b2Vec2 _size, b2Vec
 	body->SetUserData((void*)type);
 
 	CreateCrosshair(world);
+
+	animator.StartAnimation("idle");
+
 }
 
 void Player::CreatePhysicsBody(b2World & world)
@@ -129,23 +138,7 @@ void Player::CreateProjectile(b2World & world)
 
 void Player::Update()
 {
-	if (clock.getElapsedTime().asSeconds() > 0.1f)
-	{
-		if (currentFrameID > 4)
-		{
-			currentFrameID = 0;
-		}
-		else
-		{
-			currentFrameID++;
-		}
-
-		sf::IntRect rect = sprite.getTextureRect();
-
-		rect.left = currentFrameID * rect.width;
-		sprite.setTextureRect(rect);
-		clock.restart();
-	}
+	animator.Update();
 }
 
 Player::Crosshair::Crosshair()

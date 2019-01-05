@@ -1,9 +1,12 @@
 #pragma once
+#include "pch.h"
+
 #include "GameSettings.h"
 #include "Enums.h"
 #include "SFML/Graphics.hpp"
 #include "Box2D/Box2D.h"
-#include "TextureSettings.h"
+#include "Animation.h"
+#include "Animator.h"
 
 class Player
 {
@@ -59,13 +62,15 @@ public:
 	Crosshair crosshair;
 	Projectile projectile;
 
-	sf::IntRect characterRect;
-	sf::Vector2i textPos;
-	sf::Vector2i textSize;
+	Animator animator;
+
+	std::vector<Animation> animations;
+
 	sf::Clock clock;
 	int currentFrameID = 0;
 
-	Player(b2World & world, const sf::Texture& _texture, b2Vec2 _size, b2Vec2 _position);
+	Player();
+	Player(b2World & world, std::vector<Animation>& _animations, b2Vec2 _position, b2Vec2 _size);
 	void CreatePhysicsBody(b2World& world);
 
 	void Move(MoveState toState);
@@ -75,4 +80,5 @@ public:
 	void CreateProjectile(b2World & world);
 
 	void Update();
+
 };

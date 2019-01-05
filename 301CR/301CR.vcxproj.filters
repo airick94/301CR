@@ -42,7 +42,10 @@
     <ClInclude Include="GraphicsSystem.h">
       <Filter>System\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="TextureSettings.h">
+    <ClInclude Include="Animation.h">
+      <Filter>System\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Animator.h">
       <Filter>System\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
@@ -61,6 +64,12 @@
     </ClCompile>
     <ClCompile Include="GraphicsSystem.cpp">
       <Filter>System\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>System\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Animator.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
