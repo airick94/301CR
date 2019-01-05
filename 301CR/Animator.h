@@ -8,12 +8,15 @@
 class Animator
 {
 private:
-	sf::Sprite sprite;
-	std::vector<Animation> animations;
+	
 	Animation currentAnimation;
 public:
+	sf::Sprite* sprite;
+	std::vector<Animation> animations;
+
 	Animator();
-	Animator(const sf::Sprite& _sprite, std::vector<Animation>& _animations);
+	//Animator(sf::Sprite& _sprite, std::vector<Animation>& _animations);
+
 	void Update();
 	void StartAnimation(std::string name);
 };

@@ -31,9 +31,8 @@ void Animation::SetCurrentFrame(int frame)
 	currentFrame = frame;
 }
 
-void Animation::Play(const sf::Sprite& _sprite)
+void Animation::Play()
 {
-	sprite = _sprite;
 	isPlaying = true;
 }
 
@@ -43,7 +42,13 @@ void Animation::Update()
 	{
 		if (clock.getElapsedTime().asSeconds() > 0.1f)
 		{
-			if(currentFrame > numberOfFrames-1)
+			sf::IntRect rect = sprite->getTextureRect();
+
+			rect.left = currentFrame * rect.width;
+			sprite->setTextureRect(rect);
+			clock.restart();
+
+			if(currentFrame >= numberOfFrames-1)
 			{
 				currentFrame = 0;
 				if(!shouldLoop)
@@ -55,13 +60,6 @@ void Animation::Update()
 			{
 				currentFrame++;
 			}
-			
-
-			sf::IntRect rect = sprite.getTextureRect();
-
-			rect.left = currentFrame * rect.width;
-			sprite.setTextureRect(rect);
-			clock.restart();
 		}
 	}
 }

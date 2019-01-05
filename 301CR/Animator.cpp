@@ -5,14 +5,6 @@ Animator::Animator()
 {
 }
 
-Animator::Animator(const sf::Sprite& _sprite, std::vector<Animation>& _animations)
-{
-	sprite = _sprite;
-	animations = _animations;
-
-	currentAnimation = animations[0];
-}
-
 void Animator::Update()
 {
 	currentAnimation.Update();
@@ -25,7 +17,17 @@ void Animator::StartAnimation(std::string name)
 		if (animations[i].name == name)
 		{
 			currentAnimation = animations[i];
-			currentAnimation.Play(sprite);
+
+			currentAnimation.sprite = sprite;
+			currentAnimation.sprite->setTexture(currentAnimation.texture);
+			sf::IntRect rect = sf::IntRect(currentAnimation.rectPosition, currentAnimation.rectPixelSize);
+			currentAnimation.sprite->setTextureRect(rect);
+
+			currentAnimation.Play();
+		}
+		else 
+		{
+			animations[i].sprite = NULL;
 		}
 	}
 }

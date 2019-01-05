@@ -70,7 +70,7 @@ public:
 	int currentFrameID = 0;
 
 	Player();
-	Player(b2World & world, std::vector<Animation>& _animations, b2Vec2 _position, b2Vec2 _size);
+	Player(b2World & world, std::vector<Animation> _animations, b2Vec2 _position, b2Vec2 _size);
 	void CreatePhysicsBody(b2World& world);
 
 	void Move(MoveState toState);

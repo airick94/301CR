@@ -5,23 +5,25 @@ Player::Player()
 {
 }
 
-Player::Player(b2World & world, std::vector<Animation>& _animations, b2Vec2 _position, b2Vec2 _size)
+Player::Player(b2World & world, std::vector<Animation> _animations, b2Vec2 _position, b2Vec2 _size)
 {
 	type = ObjectType::OT_Player;
 
-	animations = _animations;
 
-	sprite.setTexture(animations[0].texture);
+	sprite = sf::Sprite();
+	animator.animations = _animations;
+	animator.sprite = &sprite;
+	animator.StartAnimation("walk");
+
+	/*sprite.setTexture(animations[0].texture);
 	sf::IntRect rect = sf::IntRect(animations[0].rectPosition, animations[0].rectPixelSize);
-	sprite.setTextureRect(rect);
+	sprite.setTextureRect(rect);*/
 
-	sprite.setOrigin(sprite.getTextureRect().width / 2, sprite.getTextureRect().height / 2);
 	
+	sprite.setOrigin(sprite.getTextureRect().width / 2, sprite.getTextureRect().height / 2);
 	float scaleX = (_size.x / sprite.getTextureRect().width) * SETTINGS_SCALE;
 	float scaleY = (_size.y / sprite.getTextureRect().height) * SETTINGS_SCALE;
 	sprite.setScale(sf::Vector2f(scaleX, scaleY));
-
-	animator = Animator(sprite, animations);
 
 	size = _size;
 	position = _position;
@@ -32,7 +34,6 @@ Player::Player(b2World & world, std::vector<Animation>& _animations, b2Vec2 _pos
 
 	CreateCrosshair(world);
 
-	animator.StartAnimation("idle");
 
 }
 
@@ -75,7 +76,7 @@ void Player::Move(MoveState toState)
 
 		if (sprite.getScale().x > 0)
 		{
-			sprite.setScale(-1, 1);
+			sprite.scale(-1, 1);
 		}
 		
 
@@ -92,7 +93,7 @@ void Player::Move(MoveState toState)
 
 		if (sprite.getScale().x < 0)
 		{
-			sprite.setScale(1, 1);
+			sprite.scale(-1, 1);
 		}
 		break;
 	}
