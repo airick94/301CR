@@ -10,14 +10,9 @@ Player::Player(b2World & world, std::vector<Animation> _animations, b2Vec2 _posi
 	type = ObjectType::OT_Player;
 
 
-	sprite = sf::Sprite();
 	animator.animations = _animations;
 	animator.sprite = &sprite;
-	animator.StartAnimation("walk");
-
-	/*sprite.setTexture(animations[0].texture);
-	sf::IntRect rect = sf::IntRect(animations[0].rectPosition, animations[0].rectPixelSize);
-	sprite.setTextureRect(rect);*/
+	animator.StartAnimation("idle");
 
 	
 	sprite.setOrigin(sprite.getTextureRect().width / 2, sprite.getTextureRect().height / 2);
@@ -74,12 +69,11 @@ void Player::Move(MoveState toState)
 		velChangeX = velocityX - currentvelocity.x;
 		impulseX = body->GetMass() * velChangeX;
 
+		
 		if (sprite.getScale().x > 0)
 		{
 			sprite.scale(-1, 1);
 		}
-		
-
 		break;
 	case MS_Jump:
 		velocityY = -SETTINGS_JUMPSTRENGTH;
@@ -139,6 +133,21 @@ void Player::CreateProjectile(b2World & world)
 
 void Player::Update()
 {
+	if (animator.GetCurrentAnimation() != animator.GetAnimationByName("walk"))
+	{
+		if (abs(body->GetLinearVelocity().x) > 0.05)
+		{
+			animator.StartAnimation("walk");
+		}
+	}
+	else
+	{
+		if (abs(body->GetLinearVelocity().x) < 0.05)
+		{
+			animator.StartAnimation("idle");
+		}
+	}
+
 	animator.Update();
 }
 

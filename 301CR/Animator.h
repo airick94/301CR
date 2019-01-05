@@ -9,7 +9,7 @@ class Animator
 {
 private:
 	
-	Animation currentAnimation;
+	Animation* currentAnimation;
 public:
 	sf::Sprite* sprite;
 	std::vector<Animation> animations;
@@ -19,4 +19,6 @@ public:
 
 	void Update();
 	void StartAnimation(std::string name);
+	Animation* GetCurrentAnimation();
+	Animation* GetAnimationByName(std::string name);
 };
