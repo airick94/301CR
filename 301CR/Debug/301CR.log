@@ -1,15 +1,13 @@
 ﻿  301CR.cpp
 d:\university-year3\repos\301cr_code\301cr\graphicssystem.h(15): warning C4091: 'static ': ignored on left of 'GraphicsSystem' when no variable is declared
-d:\university-year3\repos\301cr_code\301cr\301cr.cpp(133): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+d:\university-year3\repos\301cr_code\301cr\301cr.cpp(160): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=int
           ]
-  Animator.cpp
-d:\university-year3\repos\301cr_code\301cr\animator.cpp(15): warning C4018: '<': signed/unsigned mismatch
-d:\university-year3\repos\301cr_code\301cr\animator.cpp(42): warning C4018: '<': signed/unsigned mismatch
-  Player.cpp
-d:\university-year3\repos\301cr_code\301cr\player.cpp(18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Generating Code...
-d:\university-year3\repos\301cr_code\301cr\animator.cpp(49): warning C4715: 'Animator::GetAnimationByName': not all control paths return a value
+d:\university-year3\repos\301cr_code\301cr\301cr.cpp(202): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
   301CR.vcxproj -> D:\University-Year3\Repos\301CR_CODE\Debug\301CR.exe

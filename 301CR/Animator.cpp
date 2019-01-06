@@ -7,7 +7,11 @@ Animator::Animator()
 
 void Animator::Update()
 {
-	currentAnimation->Update();
+	if (currentAnimation != NULL)
+	{
+		currentAnimation->Update();
+	}
+	
 }
 
 void Animator::StartAnimation(std::string name)

@@ -29,7 +29,6 @@ Player::Player(b2World & world, std::vector<Animation> _animations, b2Vec2 _posi
 
 	CreateCrosshair(world);
 
-
 }
 
 void Player::CreatePhysicsBody(b2World & world)
@@ -133,6 +132,10 @@ void Player::CreateProjectile(b2World & world)
 
 void Player::Update()
 {
+	position = body->GetPosition();
+	sprite.setPosition(SETTINGS_SCALE * position.x, SETTINGS_SCALE * position.y);
+	sprite.setRotation(body->GetAngle() * 180 / b2_pi);
+
 	if (animator.GetCurrentAnimation() != animator.GetAnimationByName("walk"))
 	{
 		if (abs(body->GetLinearVelocity().x) > 0.05)

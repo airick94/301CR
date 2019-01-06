@@ -13,5 +13,6 @@ enum ObjectType
 	OT_Ground,
 	OT_Crosshair,
 	OT_Player,
-	OT_Projectile
+	OT_Projectile,
+	OT_NewGround
 };

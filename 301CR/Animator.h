@@ -15,7 +15,6 @@ public:
 	std::vector<Animation> animations;
 
 	Animator();
-	//Animator(sf::Sprite& _sprite, std::vector<Animation>& _animations);
 
 	void Update();
 	void StartAnimation(std::string name);
