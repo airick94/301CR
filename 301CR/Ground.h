@@ -24,6 +24,7 @@ private:
 public:
 
 	Ground();
+	~Ground();
 	Ground(b2World* _world, b2Vec2 _position, b2Vec2 _size, std::vector<sf::Sprite*>_sprites, int _numberOfSpriteSegments);
 	
 	b2Body* GetBody();
