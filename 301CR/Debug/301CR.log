@@ -1,13 +1,15 @@
 ﻿  301CR.cpp
 d:\university-year3\repos\301cr_code\301cr\graphicssystem.h(15): warning C4091: 'static ': ignored on left of 'GraphicsSystem' when no variable is declared
-d:\university-year3\repos\301cr_code\301cr\301cr.cpp(160): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+d:\university-year3\repos\301cr_code\301cr\301cr.cpp(169): warning C4018: '<': signed/unsigned mismatch
+d:\university-year3\repos\301cr_code\301cr\301cr.cpp(171): error C2100: illegal indirection
+d:\university-year3\repos\301cr_code\301cr\301cr.cpp(181): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=int
           ]
-d:\university-year3\repos\301cr_code\301cr\301cr.cpp(202): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+d:\university-year3\repos\301cr_code\301cr\301cr.cpp(199): warning C4018: '<': signed/unsigned mismatch
+d:\university-year3\repos\301cr_code\301cr\301cr.cpp(215): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=int
           ]
-  301CR.vcxproj -> D:\University-Year3\Repos\301CR_CODE\Debug\301CR.exe
