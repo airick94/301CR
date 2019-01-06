@@ -32,6 +32,6 @@ public:
 	sf::Sprite GetBaseSprite(int id);
 	int GetSpriteCount();
 	void CreatePhysicsBody();
-	void SetupSprites();
+	void SetupSprites(int numberOfSprites);
 	void Update();
 };

@@ -7,50 +7,18 @@
 #include "Box2D/Box2D.h"
 #include "Animation.h"
 #include "Animator.h"
+#include "Projectile.h"
+#include "Crosshair.h"
 
 class Player
 {
 private:
 	ObjectType type;
+	Crosshair* crosshair;
+	std::vector<Projectile*> projectiles;
 public:
 
-	class Crosshair
-	{
-	private:
-		ObjectType type;
-	public:
-		sf::Texture texture;
-		b2Vec2 size;
-		b2Vec2 position;
-
-		b2BodyDef bodyDef;
-		b2Body* body;
-		b2CircleShape shape;
-		b2FixtureDef fixtureDef;
-
-		Crosshair();
-		ObjectType GetType();
-	};
-
-	class Projectile
-	{
-	private:
-		ObjectType type;
-	public:
-		sf::Texture texture;
-		b2Vec2 size;
-		b2Vec2 position;
-
-		b2BodyDef bodyDef;
-		b2Body* body;
-		b2CircleShape shape;
-		b2FixtureDef fixtureDef;
-
-		Projectile();
-		ObjectType GetType();
-	};
-
-	sf::Sprite sprite;
+	sf::Sprite* sprite;
 	b2Vec2 size;
 	b2Vec2 position;
 
@@ -58,9 +26,6 @@ public:
 	b2Body* body;
 	b2PolygonShape shape;
 	b2FixtureDef fixtureDef;
-
-	Crosshair crosshair;
-	Projectile projectile;
 
 	Animator animator;
 
@@ -75,10 +40,14 @@ public:
 
 	void Move(MoveState toState);
 
-	void CreateCrosshair(b2World & world);
-
-	void CreateProjectile(b2World & world);
+	void AddProjectile(Projectile* proj);
 
 	void Update();
 
+	void SetCrosshair(Crosshair * _crosshair);
+
+	Crosshair * GetCrosshair();
+
+	std::vector<Projectile*> GetProjectiles();
+	
 };

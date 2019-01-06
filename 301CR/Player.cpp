@@ -9,16 +9,17 @@ Player::Player(b2World & world, std::vector<Animation> _animations, b2Vec2 _posi
 {
 	type = ObjectType::OT_Player;
 
+	sprite = new sf::Sprite();
 
 	animator.animations = _animations;
-	animator.sprite = &sprite;
+	animator.sprite = sprite;
 	animator.StartAnimation("idle");
 
 	
-	sprite.setOrigin(sprite.getTextureRect().width / 2, sprite.getTextureRect().height / 2);
-	float scaleX = (_size.x / sprite.getTextureRect().width) * SETTINGS_SCALE;
-	float scaleY = (_size.y / sprite.getTextureRect().height) * SETTINGS_SCALE;
-	sprite.setScale(sf::Vector2f(scaleX, scaleY));
+	sprite->setOrigin(sprite->getTextureRect().width / 2, sprite->getTextureRect().height / 2);
+	float scaleX = (_size.x / sprite->getTextureRect().width) * SETTINGS_SCALE;
+	float scaleY = (_size.y / sprite->getTextureRect().height) * SETTINGS_SCALE;
+	sprite->setScale(sf::Vector2f(scaleX, scaleY));
 
 	size = _size;
 	position = _position;
@@ -26,8 +27,6 @@ Player::Player(b2World & world, std::vector<Animation> _animations, b2Vec2 _posi
 	CreatePhysicsBody(world);
 
 	body->SetUserData((void*)type);
-
-	CreateCrosshair(world);
 
 }
 
@@ -69,9 +68,9 @@ void Player::Move(MoveState toState)
 		impulseX = body->GetMass() * velChangeX;
 
 		
-		if (sprite.getScale().x > 0)
+		if (sprite->getScale().x > 0)
 		{
-			sprite.scale(-1, 1);
+			sprite->scale(-1, 1);
 		}
 		break;
 	case MS_Jump:
@@ -84,9 +83,9 @@ void Player::Move(MoveState toState)
 		velChangeX = velocityX - currentvelocity.x;
 		impulseX = body->GetMass() * velChangeX;
 
-		if (sprite.getScale().x < 0)
+		if (sprite->getScale().x < 0)
 		{
-			sprite.scale(-1, 1);
+			sprite->scale(-1, 1);
 		}
 		break;
 	}
@@ -94,47 +93,16 @@ void Player::Move(MoveState toState)
 	body->ApplyLinearImpulse(b2Vec2(impulseX, impulseY), body->GetWorldCenter(), true);
 }
 
-void Player::CreateCrosshair(b2World & world)
+void Player::AddProjectile(Projectile * proj)
 {
-	crosshair = Crosshair();
-
-	crosshair.bodyDef.position = b2Vec2(position.x / SETTINGS_SCALE, position.y / SETTINGS_SCALE);
-	crosshair.bodyDef.type = b2_staticBody;
-	crosshair.body = world.CreateBody(&crosshair.bodyDef);
-
-	crosshair.shape.m_radius = 1;
-	crosshair.fixtureDef.density = 1.f;
-	crosshair.fixtureDef.friction = 1.0f;
-	crosshair.fixtureDef.shape = &shape;
-
-	crosshair.body->CreateFixture(&crosshair.fixtureDef);
-
-	crosshair.body->SetUserData((void*)crosshair.GetType());
-}
-
-void Player::CreateProjectile(b2World & world)
-{
-	projectile = Projectile();
-
-	projectile.bodyDef.position = body->GetPosition();
-	projectile.bodyDef.type = b2_kinematicBody;
-	projectile.body = world.CreateBody(&projectile.bodyDef);
-
-	projectile.shape.m_radius = 1;
-	projectile.fixtureDef.density = 1.f;
-	projectile.fixtureDef.friction = 1.0f;
-	projectile.fixtureDef.shape = &shape;
-
-	projectile.body->CreateFixture(&projectile.fixtureDef);
-
-	projectile.body->SetUserData((void*)projectile.GetType());
+	projectiles.push_back(proj);
 }
 
 void Player::Update()
 {
 	position = body->GetPosition();
-	sprite.setPosition(SETTINGS_SCALE * position.x, SETTINGS_SCALE * position.y);
-	sprite.setRotation(body->GetAngle() * 180 / b2_pi);
+	sprite->setPosition(SETTINGS_SCALE * position.x, SETTINGS_SCALE * position.y);
+	sprite->setRotation(body->GetAngle() * 180 / b2_pi);
 
 	if (animator.GetCurrentAnimation() != animator.GetAnimationByName("walk"))
 	{
@@ -154,22 +122,17 @@ void Player::Update()
 	animator.Update();
 }
 
-Player::Crosshair::Crosshair()
+void Player::SetCrosshair(Crosshair * _crosshair)
 {
-	type = ObjectType::OT_Crosshair;
+	crosshair = _crosshair;
 }
 
-ObjectType Player::Crosshair::GetType()
+Crosshair* Player::GetCrosshair()
 {
-	return type;
+	return crosshair;
 }
 
-Player::Projectile::Projectile()
+std::vector<Projectile*> Player::GetProjectiles()
 {
-	type = ObjectType::OT_Projectile;
-}
-
-ObjectType Player::Projectile::GetType()
-{
-	return type;
+	return projectiles;
 }

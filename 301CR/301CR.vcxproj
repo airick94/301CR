@@ -173,6 +173,7 @@
   <ItemGroup>
     <ClInclude Include="Animator.h" />
     <ClInclude Include="ContactListener.h" />
+    <ClInclude Include="Crosshair.h" />
     <ClInclude Include="GameSettings.h" />
     <ClInclude Include="Enums.h" />
     <ClInclude Include="Ground.h" />
@@ -181,12 +182,14 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="GraphicsSystem.h" />
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="Projectile.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="301CR.cpp" />
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Animator.cpp" />
     <ClCompile Include="ContactListener.cpp" />
+    <ClCompile Include="Crosshair.cpp" />
     <ClCompile Include="GraphicsSystem.cpp" />
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="pch.cpp">
@@ -196,6 +199,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Projectile.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

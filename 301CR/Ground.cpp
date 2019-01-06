@@ -17,11 +17,10 @@ Ground::Ground(b2World * _world, b2Vec2 _position, b2Vec2 _size, std::vector<sf:
 	position = _position;
 	size = _size;
 	baseSprites = _sprites;
-	numberOfSpriteSegments = _numberOfSpriteSegments;
 
 
 	CreatePhysicsBody();
-	SetupSprites();
+	SetupSprites(_numberOfSpriteSegments);
 }
 
 b2Body * Ground::GetBody()
@@ -66,18 +65,18 @@ void Ground::CreatePhysicsBody()
 	body->SetUserData((void*)type);
 }
 
-void Ground::SetupSprites()
+void Ground::SetupSprites(int numberOfSprites)
 {
 	sprites.clear();
-	sprites.resize(numberOfSpriteSegments);
+	sprites.resize(numberOfSprites);
 	sf::Sprite sprite;
-	for (int i = 0; i < numberOfSpriteSegments; i++)
+	for (int i = 0; i < numberOfSprites; i++)
 	{
 		if (i == 0)
 		{
 			sprite = GetBaseSprite(0);
 		}
-		else if (i == numberOfSpriteSegments-1)
+		else if (i == numberOfSprites -1)
 		{
 			sprite = GetBaseSprite(2);
 		}
@@ -90,14 +89,14 @@ void Ground::SetupSprites()
 		sprite.setOrigin(rect.width / 2, rect.height / 2);
 		float groundSizePixelX = size.x * SETTINGS_SCALE;
 		float groundSizePixelY = size.y * SETTINGS_SCALE;
-		float scaleX = (groundSizePixelX / rect.width) / numberOfSpriteSegments;
+		float scaleX = (groundSizePixelX / rect.width) / numberOfSprites;
 		float scaleY = groundSizePixelY / rect.height;
 		sprite.setScale(scaleX, scaleY);
 
 		float bodyPositionX = body->GetPosition().x * SETTINGS_SCALE;
 		float bodyPositionY = body->GetPosition().y * SETTINGS_SCALE;
 
-		float spritePositionX = bodyPositionX + (i * size.x * SETTINGS_SCALE / numberOfSpriteSegments);
+		float spritePositionX = bodyPositionX + (i * size.x * SETTINGS_SCALE / numberOfSprites);
 		float offSetX = size.x / 2 * SETTINGS_SCALE;
 
 		spritePositionX -= offSetX;
@@ -105,7 +104,7 @@ void Ground::SetupSprites()
 		sprite.setPosition(spritePositionX, bodyPositionY);
 		sprite.setRotation(180 / b2_pi * body->GetAngle());
 
-		sprites[i]= sprite;
+		sprites[i] = sprite;
 	}
 }
 

@@ -9,34 +9,24 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="System">
       <UniqueIdentifier>{d1c7b146-f74f-4eb7-b733-8fda921c7d13}</UniqueIdentifier>
     </Filter>
     <Filter Include="System\Graphics">
       <UniqueIdentifier>{71f61719-5132-4b82-b1e3-8a8b6860685f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="System\Objects">
+      <UniqueIdentifier>{d52b4428-a045-443f-9cfa-ccc271476621}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Physics">
+      <UniqueIdentifier>{fbc50d59-fcb0-44d3-87bb-f4d52508a01f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Utilities">
+      <UniqueIdentifier>{9bc14cdd-548f-466c-97cb-b0c6397c7f0d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ContactListener.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameSettings.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Enums.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectProperties.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GraphicsSystem.h">
@@ -48,8 +38,29 @@
     <ClInclude Include="Animator.h">
       <Filter>System\Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>System\Objects</Filter>
+    </ClInclude>
     <ClInclude Include="Ground.h">
-      <Filter>Header Files</Filter>
+      <Filter>System\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="ContactListener.h">
+      <Filter>System\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSettings.h">
+      <Filter>System\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectProperties.h">
+      <Filter>System\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Enums.h">
+      <Filter>System\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
+      <Filter>System\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Crosshair.h">
+      <Filter>System\Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -59,23 +70,29 @@
     <ClCompile Include="301CR.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ContactListener.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GraphicsSystem.cpp">
       <Filter>System\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Animation.cpp">
       <Filter>System\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Animator.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Player.cpp">
+      <Filter>System\Objects</Filter>
     </ClCompile>
     <ClCompile Include="Ground.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>System\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="ContactListener.cpp">
+      <Filter>System\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Animator.cpp">
+      <Filter>System\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Projectile.cpp">
+      <Filter>System\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Crosshair.cpp">
+      <Filter>System\Objects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
