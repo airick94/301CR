@@ -50,4 +50,5 @@ Animation * Animator::GetAnimationByName(std::string name)
 			return &animations[i];
 		}
 	}
+	return nullptr;
 }

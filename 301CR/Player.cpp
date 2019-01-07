@@ -1,6 +1,10 @@
 #include "pch.h"
 #include "Player.h"
 
+Player::~Player()
+{
+}
+
 Player::Player()
 {
 }
@@ -32,12 +36,17 @@ Player::Player(b2World & world, std::vector<Animation> _animations, b2Vec2 _posi
 
 void Player::CreatePhysicsBody(b2World & world)
 {
+	b2BodyDef bodyDef;
+
 	bodyDef.position = b2Vec2(position.x, position.y);
 	bodyDef.type = b2_dynamicBody;
 	body = world.CreateBody(&bodyDef);
 	body->SetFixedRotation(true);
 
+	b2PolygonShape shape;
 	shape.SetAsBox((size.x / 2), (size.y / 2));
+
+	b2FixtureDef fixtureDef;
 	fixtureDef.density = 1.f;
 	fixtureDef.friction = 1.0f;
 	fixtureDef.shape = &shape;
@@ -135,4 +144,9 @@ Crosshair* Player::GetCrosshair()
 std::vector<Projectile*> Player::GetProjectiles()
 {
 	return projectiles;
+}
+
+void Player::IncreasePoints(int amount)
+{
+	points += amount;
 }

@@ -18,7 +18,7 @@ Ground::Ground(b2World * _world, b2Vec2 _position, b2Vec2 _size, std::vector<sf:
 	size = _size;
 	baseSprites = _sprites;
 
-
+	numberOfSpriteSegments = _numberOfSpriteSegments;
 	CreatePhysicsBody();
 	SetupSprites(_numberOfSpriteSegments);
 }
@@ -110,5 +110,22 @@ void Ground::SetupSprites(int numberOfSprites)
 
 void Ground::Update()
 {
-	position = body->GetPosition();
+	b2Vec2 difference = position - body->GetPosition(); //remember previous position so we can update sprites
+
+	body->SetTransform(position, body->GetAngle());
+
+	for (int i = 0; i < sprites.size(); i++)
+	{
+		sprites[i].setPosition(sprites[i].getPosition().x + difference.x * SETTINGS_SCALE, sprites[i].getPosition().y + difference.y * SETTINGS_SCALE);
+	}
+}
+
+b2Vec2 Ground::GetSize()
+{
+	return size;
+}
+
+int Ground::GetNumberOfSegments()
+{
+	return numberOfSpriteSegments;
 }

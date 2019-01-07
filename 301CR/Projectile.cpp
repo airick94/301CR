@@ -4,8 +4,8 @@
 Projectile::Projectile(b2World & world, b2Vec2 _position, sf::Texture& _texture )
 {
 	type = ObjectType::OT_Projectile;
-	
 	position = _position;
+	
 	CreatePhysicsBody(world);
 
 	sprite = new sf::Sprite();
@@ -23,18 +23,17 @@ Projectile::~Projectile()
 {
 }
 
-ObjectType Projectile::GetType()
-{
-	return type;
-}
-
 void Projectile::CreatePhysicsBody(b2World & world)
 {
+	b2BodyDef bodyDef;
 	bodyDef.position = position;
 	bodyDef.type = b2_kinematicBody;
 	body = world.CreateBody(&bodyDef);
 
+	b2CircleShape shape;
 	shape.m_radius = 1;
+
+	b2FixtureDef fixtureDef;
 	fixtureDef.density = 1.f;
 	fixtureDef.friction = 1.0f;
 	fixtureDef.shape = &shape;

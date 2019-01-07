@@ -1,0 +1,14 @@
+GROUND{Assets/Level_Spring_128x128/GrassLeft.png;Assets/Level_Spring_128x128/GrassMid.png;Assets/Level_Spring_128x128/GrassRight.png;10.000000,4.000000;18.000000,3.000000;3}
+GROUND{Assets/Level_Spring_128x128/GrassLeft.png;Assets/Level_Spring_128x128/GrassMid.png;Assets/Level_Spring_128x128/GrassRight.png;10.000000,4.000000;10.000000,3.000000;3}
+GROUND{Assets/Level_Spring_128x128/GrassLeft.png;Assets/Level_Spring_128x128/GrassMid.png;Assets/Level_Spring_128x128/GrassRight.png;10.000000,4.000000;27.966667,2.966667;3}
+GROUND{Assets/Level_Spring_128x128/GrassLeft.png;Assets/Level_Spring_128x128/GrassMid.png;Assets/Level_Spring_128x128/GrassRight.png;10.000000,4.000000;37.833332,3.000000;3}
+GROUND{Assets/Level_Spring_128x128/GrassLeft.png;Assets/Level_Spring_128x128/GrassMid.png;Assets/Level_Spring_128x128/GrassRight.png;10.000000,4.000000;47.833332,2.066667;3}
+GROUND{Assets/Level_Spring_128x128/GrassLeft.png;Assets/Level_Spring_128x128/GrassMid.png;Assets/Level_Spring_128x128/GrassRight.png;10.000000,4.000000;56.133335,5.300000;3}
+GROUND{Assets/Level_Spring_128x128/GrassLeft.png;Assets/Level_Spring_128x128/GrassMid.png;Assets/Level_Spring_128x128/GrassRight.png;10.000000,4.000000;80.033333,5.333333;3}
+GROUND{Assets/Level_Spring_128x128/GrassLeft.png;Assets/Level_Spring_128x128/GrassMid.png;Assets/Level_Spring_128x128/GrassRight.png;10.000000,4.000000;91.166664,6.866667;3}
+GROUND{Assets/Level_Spring_128x128/GrassLeft.png;Assets/Level_Spring_128x128/GrassMid.png;Assets/Level_Spring_128x128/GrassRight.png;10.000000,4.000000;102.133331,6.900000;3}
+GROUND{Assets/Level_Spring_128x128/GrassLeft.png;Assets/Level_Spring_128x128/GrassMid.png;Assets/Level_Spring_128x128/GrassRight.png;10.000000,4.000000;110.966667,3.700000;3}
+GROUND{Assets/Level_Spring_128x128/GrassLeft.png;Assets/Level_Spring_128x128/GrassMid.png;Assets/Level_Spring_128x128/GrassRight.png;10.000000,4.000000;122.033333,2.666667;3}
+GROUND{Assets/Level_Spring_128x128/GrassLeft.png;Assets/Level_Spring_128x128/GrassMid.png;Assets/Level_Spring_128x128/GrassRight.png;10.000000,4.000000;96.933334,-12.766666;3}
+GROUND{Assets/Level_Spring_128x128/GrassLeft.png;Assets/Level_Spring_128x128/GrassMid.png;Assets/Level_Spring_128x128/GrassRight.png;10.000000,4.000000;58.033333,-9.400000;3}
+GROUND{Assets/Level_Spring_128x128/GrassLeft.png;Assets/Level_Spring_128x128/GrassMid.png;Assets/Level_Spring_128x128/GrassRight.png;10.000000,4.000000;66.466667,4.966667;3}

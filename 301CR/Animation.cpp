@@ -7,11 +7,23 @@ Animation::Animation()
 
 Animation::Animation(std::string _name, const sf::Texture & _texture, const sf::Vector2i _rectPosition, const sf::Vector2i _rectPixelSize, int _numberOfFrames)
 {
+	isSpriteSheet = true;
 	name			= _name;
 	texture			= _texture;
 	rectPixelSize	= _rectPixelSize;
 	rectPosition	= _rectPosition;
 	numberOfFrames	= _numberOfFrames;
+
+	currentFrame = 0;
+}
+Animation::Animation(std::string _name, std::vector<sf::Texture> & _textures, const sf::Vector2i _rectPosition, const sf::Vector2i _rectPixelSize, int _numberOfFrames)
+{
+	isSpriteSheet = false;
+	name = _name;
+	textures = _textures;
+	rectPixelSize = _rectPixelSize;
+	rectPosition = _rectPosition;
+	numberOfFrames = _numberOfFrames;
 
 	currentFrame = 0;
 }
@@ -42,16 +54,24 @@ void Animation::Update()
 	{
 		if (clock.getElapsedTime().asSeconds() > 0.1f)
 		{
-			sf::IntRect rect = sprite->getTextureRect();
+			if (isSpriteSheet)
+			{
+				sf::IntRect rect = sprite->getTextureRect();
 
-			rect.left = currentFrame * rect.width;
-			sprite->setTextureRect(rect);
-			clock.restart();
+				rect.left = currentFrame * rect.width;
+				sprite->setTextureRect(rect);
+				clock.restart();
+			}
+			else
+			{
+				sprite->setTexture(textures[currentFrame]);
+			}
+			
 
-			if(currentFrame >= numberOfFrames-1)
+			if (currentFrame >= numberOfFrames - 1)
 			{
 				currentFrame = 0;
-				if(!shouldLoop)
+				if (!shouldLoop)
 				{
 					isPlaying = false;
 				}
@@ -61,6 +81,7 @@ void Animation::Update()
 				currentFrame++;
 			}
 		}
+		
 	}
 }
 

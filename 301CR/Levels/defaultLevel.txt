@@ -1,0 +1,2 @@
+GROUND{Assets/Level_Spring_128x128/GrassLeft.png;Assets/Level_Spring_128x128/GrassMid.png;Assets/Level_Spring_128x128/GrassRight.png;10,7;18,3;18}
+GROUND{Assets/Level_Spring_128x128/GrassLeft.png;Assets/Level_Spring_128x128/GrassMid.png;Assets/Level_Spring_128x128/GrassRight.png;10,0;10,3;18}

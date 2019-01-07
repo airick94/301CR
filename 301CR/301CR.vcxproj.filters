@@ -24,13 +24,22 @@
     <Filter Include="System\Utilities">
       <UniqueIdentifier>{9bc14cdd-548f-466c-97cb-b0c6397c7f0d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="System\UI">
+      <UniqueIdentifier>{8fb98fbf-3680-4259-bb8f-7a42124faf8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Levels">
+      <UniqueIdentifier>{7550963b-fa2d-458b-ae17-30c05f1e044c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\LevelTools">
+      <UniqueIdentifier>{7d079201-704d-4417-95b7-e4c6bc6fe888}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Networking">
+      <UniqueIdentifier>{a8f00cef-caf8-4af0-80e1-cb0ec04d690c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GraphicsSystem.h">
-      <Filter>System\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Animation.h">
       <Filter>System\Graphics</Filter>
@@ -62,6 +71,27 @@
     <ClInclude Include="Crosshair.h">
       <Filter>System\Objects</Filter>
     </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>System\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="UISystem.h">
+      <Filter>System\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="GroundProperties.h">
+      <Filter>System\LevelTools</Filter>
+    </ClInclude>
+    <ClInclude Include="CollectibleProperties.h">
+      <Filter>System\LevelTools</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelLoader.h">
+      <Filter>System\LevelTools</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelProperties.h">
+      <Filter>System\LevelTools</Filter>
+    </ClInclude>
+    <ClInclude Include="Collectible.h">
+      <Filter>System\Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -69,9 +99,6 @@
     </ClCompile>
     <ClCompile Include="301CR.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GraphicsSystem.cpp">
-      <Filter>System\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Animation.cpp">
       <Filter>System\Graphics</Filter>
@@ -94,5 +121,20 @@
     <ClCompile Include="Crosshair.cpp">
       <Filter>System\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>System\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="UISystem.cpp">
+      <Filter>System\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelLoader.cpp">
+      <Filter>System\LevelTools</Filter>
+    </ClCompile>
+    <ClCompile Include="Collectible.cpp">
+      <Filter>System\Objects</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="301CR.rc" />
   </ItemGroup>
 </Project>

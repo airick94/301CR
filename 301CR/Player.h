@@ -9,23 +9,15 @@
 #include "Animator.h"
 #include "Projectile.h"
 #include "Crosshair.h"
+#include "GameObject.h"
 
-class Player
+class Player : public GameObject
 {
 private:
-	ObjectType type;
 	Crosshair* crosshair;
 	std::vector<Projectile*> projectiles;
+	int points = 0;
 public:
-
-	sf::Sprite* sprite;
-	b2Vec2 size;
-	b2Vec2 position;
-
-	b2BodyDef bodyDef;
-	b2Body* body;
-	b2PolygonShape shape;
-	b2FixtureDef fixtureDef;
 
 	Animator animator;
 
@@ -33,7 +25,7 @@ public:
 
 	sf::Clock clock;
 	int currentFrameID = 0;
-
+	~Player();
 	Player();
 	Player(b2World & world, std::vector<Animation> _animations, b2Vec2 _position, b2Vec2 _size);
 	void CreatePhysicsBody(b2World& world);
@@ -49,5 +41,7 @@ public:
 	Crosshair * GetCrosshair();
 
 	std::vector<Projectile*> GetProjectiles();
+	
+	void IncreasePoints(int amount);
 	
 };

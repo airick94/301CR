@@ -7,22 +7,20 @@
 #include "SFML/Graphics.hpp"
 #include "Enums.h"
 #include "GameSettings.h"
+#include "GameObject.h"
 
-class Ground
+class Ground : public GameObject
 {
 private:
-	ObjectType type;
-	b2Vec2 position;
-	b2Vec2 size;
+	
 	std::vector<sf::Sprite*> baseSprites;
 	std::vector<sf::Sprite> sprites;
 	b2World* world;
 	int numberOfSpriteSegments;
 
-
-	b2Body* body;
 public:
 
+	std::vector<std::string> texturepaths;
 	Ground();
 	~Ground();
 	Ground(b2World* _world, b2Vec2 _position, b2Vec2 _size, std::vector<sf::Sprite*>_sprites, int _numberOfSpriteSegments);
@@ -34,4 +32,7 @@ public:
 	void CreatePhysicsBody();
 	void SetupSprites(int numberOfSprites);
 	void Update();
+	b2Vec2 GetSize();
+	int GetNumberOfSegments();
+
 };

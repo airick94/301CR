@@ -14,5 +14,13 @@ enum ObjectType
 	OT_Crosshair,
 	OT_Player,
 	OT_Projectile,
-	OT_NewGround
+	OT_NewGround,
+	OT_Collectible
+};
+
+enum GameMode 
+{
+	GM_Edit,
+	GM_Grab,
+	GM_Game
 };
